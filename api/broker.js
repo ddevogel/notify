@@ -10,7 +10,7 @@ export function createConnectedClient(dispatch){
   })
 
   client.on('message', function(topic, payload, packet) {
-    dispatch('New message: ' + payload.toString() + ' at ' + new Date())
+    dispatch('New message: ' + payload.toString() + ' at ' + new Date().getTime())
   })
 
   return client

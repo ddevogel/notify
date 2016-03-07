@@ -16,21 +16,17 @@ const mapDispatchToProps = (dispatch) => {
           dispatch(receive(newMessage))
         }
       )
+    },
+    onReset: (notifications) => {
+      if(notifications && notifications.length > 0){
+        console.log('g')
+        alert(notifications.join('<br/>'))
+      }
+      dispatch(reset())
     }
-    // ,
-    // onClick: () => {
-    //   //console.log(s)
-    //   // if(notifications && notifications.length > 0){
-    //   //   console.log('g')
-    //   //   alert(notifications.join('<br/>'))
-    //   // }
-    //   //dispatch(reset())
-    // }
   }
 }
 
 let AppContainer = connect(mapStateToProps, mapDispatchToProps)(Notifications)
 
 export default AppContainer
-
-//state => {return {'notifications': state.notifications}}, mapDispatchToProps)(Notifications)
