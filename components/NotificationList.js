@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { Button, Glyphicon } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 
-class Notifications extends Component {
+class NotificationList extends Component {
 
   componentDidMount(){
     this.props.onMount()
@@ -30,11 +30,4 @@ class Notifications extends Component {
   }
 }
 
-export default Notifications
-
-//display:{(this.props.notifications && this.props.notifications.length > 0) ? block : none}
-// <Button bsSize="large" onClick={this.show(this.props.notifications)}>
-//   <Glyphicon glyph="star"/>{this.props.notifications
-//     ? this.props.notifications.length.toString() + ' new notification(s)'
-//     : 'No notifications'}
-// </Button>
+export default NotificationList
