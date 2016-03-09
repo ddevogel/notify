@@ -5,7 +5,7 @@ import Notifications from '../components/Notifications.js'
 import { receive, reset } from '../actions/actions.js'
 
 const mapStateToProps = (state) => {
-  return state
+  return state;
 }
 
 const mapDispatchToProps = (dispatch) => {
@@ -18,10 +18,6 @@ const mapDispatchToProps = (dispatch) => {
       )
     },
     onReset: (notifications) => {
-      if(notifications && notifications.length > 0){
-        console.log('g')
-        alert(notifications.join('<br/>'))
-      }
       dispatch(reset())
     }
   }
