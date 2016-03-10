@@ -31,3 +31,11 @@
     font-weight:bold;
     text-decoration:none;
 }
+
+.round-button a:visited {
+  color:white;
+}
+
+.buttonBar {
+  float: right;
+}

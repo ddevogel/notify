@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button } from 'react-bootstrap'
+import { Button, Table } from 'react-bootstrap'
 import Modal from 'react-modal'
 
 class Notifications extends Component {
@@ -62,25 +62,45 @@ class Notifications extends Component {
           style={customStyles} >
 
           <h2>Notification List</h2>
-          <Button onClick={this.props.onReset}>Clear</Button>
           <div>
-            <ul>
-              {this.props.notifications.map(function(notification){
-                return <li key={notification}>{notification}</li>
-              })}
-            </ul>
+            <Table striped bordered condensed hover>
+              <thead>
+                <tr>
+                  <th>Id</th>
+                  <th>Message</th>
+                </tr>
+              </thead>
+              <tbody>
+              {
+                this.props.notifications.map((notification, index) =>
+                    <tr key={index}>
+                      <td>{index}</td>
+                      <td>{notification}</td>
+                    </tr>
+                )
+              }
+              </tbody>
+          </Table>
           </div>
-          <Button onClick={() => this.closeModal()}>Close</Button>
-
+          <div>
+            <span className="buttonBar">
+              <Button onClick={this.props.onReset}>Clear</Button>
+              <Button onClick={() => this.closeModal()}>Close</Button>
+            </span>
+          </div>
         </Modal>
-
       </div>
     )
   }
 }
 
 export default Notifications
-
+//
+// <ul>
+//   {this.props.notifications.map(function(notification){
+//     return <li key={notification}>{notification}</li>
+//   })}
+// </ul>
 // let style = {
 //     display: (this.props.count && this.props.count > 0) ? 'block' : 'none'
 // }
