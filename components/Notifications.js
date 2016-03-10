@@ -13,8 +13,11 @@ class Notifications extends Component {
     this.setState({modalIsOpen: true});
   }
 
-  closeModal() {
+  closeModal(clear) {
     this.setState({modalIsOpen: false});
+    if(clear){
+      clear()
+    }
   }
 
   componentDidMount(){
@@ -84,7 +87,7 @@ class Notifications extends Component {
           </div>
           <div>
             <span className="buttonBar">
-              <Button onClick={this.props.onReset}>Clear</Button>
+              <Button onClick={() => this.closeModal(this.props.onReset)}>Clear</Button>
               <Button onClick={() => this.closeModal()}>Close</Button>
             </span>
           </div>
