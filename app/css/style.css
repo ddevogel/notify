@@ -36,6 +36,10 @@
   color:white;
 }
 
+.round-button a:hover {
+    text-decoration:none;
+}
+
 .buttonBar {
   float: right;
 }

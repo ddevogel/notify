@@ -70,15 +70,19 @@ class Notifications extends Component {
               <thead>
                 <tr>
                   <th>Id</th>
+                  <th>Time</th>
+                  <th>Topic</th>
                   <th>Message</th>
                 </tr>
               </thead>
               <tbody>
               {
                 this.props.notifications.map((notification, index) =>
-                    <tr key={index}>
-                      <td>{index}</td>
-                      <td>{notification}</td>
+                    <tr key={index+1}>
+                      <td>{index+1}</td>
+                      <td>{notification.time}</td>
+                      <td>{notification.topic}</td>
+                      <td>{notification.payload}</td>
                     </tr>
                 )
               }
