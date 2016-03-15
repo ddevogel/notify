@@ -4,18 +4,18 @@ import moment from 'moment'
 export function createConnectedClient(dispatch){
   const host = 'ws://localhost:7000'
   // let clientId = 'jwtTokenStandInPlusUniquenessForDemo_' + Math.random().toString(16).substr(2, 8);
-  let clientId = (Math.floor(Math.random() * 10) + 1).toString()
 
   let client = mqtt.connect(
     host,
     {
-      clientId: clientId
+      clientId: clientId,
+      clean: false
     }
   )
 
   client.on('connect', function() {
       console.log(client)
-      client.subscribe("public/notifications/" + clientId);
+      client.subscribe("public/notifications/" + clientId, { 'qos': 2 });
       console.log('client ' + clientId + ' - connected and subscribed')
   })
 
