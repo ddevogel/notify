@@ -4,6 +4,7 @@ import moment from 'moment'
 export function createConnectedClient(dispatch){
   const host = 'ws://localhost:7000'
   // let clientId = 'jwtTokenStandInPlusUniquenessForDemo_' + Math.random().toString(16).substr(2, 8);
+  let clientId = (Math.floor(Math.random() * 10) + 1).toString()
 
   let client = mqtt.connect(
     host,
