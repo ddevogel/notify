@@ -1,9 +1,10 @@
-import { RECEIVE, RESET } from '../actions/constants.js'
+import { RECEIVE, RESET, OPEN_MODAL, CLOSE_MODAL } from '../actions/constants.js'
 
 function emptyState(){
   return {
       lastNotification: null,
-      notifications: []
+      notifications: [],
+      modalIsOpen: false
   }
 }
 
@@ -18,6 +19,12 @@ function notificationsReducer(state = emptyState(), action){
       break;
     case RESET:
       return emptyState()
+      break;
+    case OPEN_MODAL:
+    case CLOSE_MODAL:
+      return Object.assign({}, state, {
+        modalIsOpen: action.modalIsOpen
+      })
       break;
     default:
       console.log('Unknown action: ' + action.type)

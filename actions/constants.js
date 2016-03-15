@@ -1,4 +1,4 @@
-// export const CONNECT = 'CONNECT'
 export const RECEIVE = 'RECEIVE'
-// export const DISPLAY = 'DISPLAY'
 export const RESET   = 'RESET'
+export const OPEN_MODAL   = 'OPEN_MODAL'
+export const CLOSE_MODAL   = 'CLOSE_MODAL'

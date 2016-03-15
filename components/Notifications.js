@@ -4,17 +4,12 @@ import Modal from 'react-modal'
 
 class Notifications extends Component {
 
-  constructor() {
-   super();
-   this.state = {modalIsOpen: false}
-  }
-
   openModal() {
-    this.setState({modalIsOpen: true});
+    this.props.onShowModal();
   }
 
   closeModal(clear) {
-    this.setState({modalIsOpen: false});
+    this.props.onHideModal();
     if(clear){
       clear()
     }
@@ -60,7 +55,7 @@ class Notifications extends Component {
           <a href="#" onClick={() => this.openModal()} className="round-button">{count}</a>
         </div>
         <Modal
-          isOpen={this.state.modalIsOpen}
+          isOpen={this.props.modalIsOpen}
           onRequestClose={() => this.closeModal()}
           style={customStyles} >
 
